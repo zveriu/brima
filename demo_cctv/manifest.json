@@ -1,0 +1,36 @@
+{
+
+  "manifest_version": 2,
+  "name": "Annotate cameras",
+  "version": "1.0",
+  "description": "Extension for selecting image and giving some information about image",
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+
+  "icons": {
+    "48": "select-48.png"
+  },
+
+  "browser_action": {
+    "default_icon": "select-48.png",
+    "default_title": "Annotate cameras"
+  },
+
+  "permissions": [
+    "downloads",
+    "tabs",
+    "activeTab",
+    "storage",
+    "unlimitedStorage",
+    "contextMenus",
+    "clipboardRead",
+    "clipboardWrite",
+    "notifications"
+  ],
+
+  "content_scripts": [
+    {
+		"matches": ["https://www.google.fi/*", "https://www.google.com/*", "https://www.mapillary.com/*", "https://www.flickr.com/*", "https://map.baidu.com/*"],
+		"js": ["cameras.js", "jquery1_6_4.js", "jquery.js", "imageAnno.js"]
+    }
+  ]
+}
